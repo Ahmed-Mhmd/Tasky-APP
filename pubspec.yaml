@@ -88,3 +88,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/splash_ios_android_11.png"
+  adaptive_icon_background: "#5F33E1"
+  adaptive_icon_foreground: "assets/images/play-store-icon-launcher.png"
