@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tasky_app/core/constant/assets_constant.dart';
+import 'package:tasky_app/core/utils/assets_constant.dart';
 import 'package:tasky_app/features/auth/screens/login_screen.dart';
 
 import 'home_screen.dart';
@@ -24,9 +24,6 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     _navigate;
-    // Future.delayed(const Duration(seconds: 2), () {
-    //   Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-    // });
   }
 
   Future<void> get _navigate async {

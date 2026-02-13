@@ -1,14 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, sort_child_properties_last, use_build_context_synchronously
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import 'package:tasky_app/core/constant/assets_constant.dart';
-
+import '../../../core/utils/assets_constant.dart';
 import '../../auth/screens/login_screen.dart';
 import '../model/onboarding_data.dart';
+import '../widgets/custom_animated_widget.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -31,7 +29,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //! image onboarding
             SizedBox(
               height: 240.h,
               child: PageView.builder(
@@ -40,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 itemBuilder: (context, index) {
                   return CustomAnimatedWidget(
                     currentIndex: currentIndex,
-                    delay: currentIndex,
+                    delay: index * 300,
                     child: Image.asset(onboardingListOfData[index].imagePath),
                   );
                 },
@@ -99,7 +96,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             SizedBox(height: 100.h),
 
-            //! button onboarding
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Align(
@@ -175,31 +171,4 @@ List<OnboardingData> dataOnboarding() {
           'You can organize your daily tasks by adding your tasks into separate categories',
     ),
   ];
-}
-
-class CustomAnimatedWidget extends StatelessWidget {
-  const CustomAnimatedWidget({
-    super.key,
-    required this.currentIndex,
-    required this.delay,
-    required this.child,
-  });
-  final int currentIndex;
-  final int delay;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    if (currentIndex == 1) {
-      return FadeInDown(
-        child: child,
-        delay: Duration(milliseconds: delay),
-      );
-    } else {
-      return FadeInUp(
-        child: child,
-        delay: Duration(milliseconds: delay),
-      );
-    }
-  }
 }

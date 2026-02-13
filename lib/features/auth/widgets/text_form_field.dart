@@ -1,4 +1,3 @@
-
 // ignore_for_file: unused_field
 
 import 'package:flutter/material.dart';
@@ -13,7 +12,7 @@ class TextFormFieldWidget extends StatefulWidget {
   final TextEditingController controller;
   final Validator myValidator;
   final bool obscureText;
-
+  final TextStyle? hintStyle;
   const TextFormFieldWidget({
     super.key,
     required this.title,
@@ -23,6 +22,7 @@ class TextFormFieldWidget extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.isPassword = false,
     this.obscureText = false,
+    this.hintStyle,
   });
 
   @override
@@ -31,7 +31,7 @@ class TextFormFieldWidget extends StatefulWidget {
 
 class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   late bool _obscureText;
-  late bool _touched=false;
+  late bool _touched = false;
 
   @override
   void initState() {
@@ -67,11 +67,13 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           ),
           decoration: InputDecoration(
             hintText: widget.hintText,
-            hintStyle: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              color: Color(0xff7F7F7F),
-            ),
+            hintStyle:
+                widget.hintStyle ??
+                const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff7F7F7F),
+                ),
             filled: true,
             fillColor: Color(0xffFFFFFF),
             contentPadding: const EdgeInsets.all(15),
