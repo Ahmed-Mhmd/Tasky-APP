@@ -11,7 +11,7 @@ abstract class AuthFunctions {
         .collection(UserModel.collectionName)
         .withConverter<UserModel>(
           fromFirestore: (snapshot, _) => UserModel.fromJson(snapshot.data()!),
-          toFirestore: (userModel, _) => userModel.toJson(),
+          toFirestore: (user, _) => user.toJson(),
         );
   }
 
@@ -56,7 +56,9 @@ abstract class AuthFunctions {
     }
   }
 
-  static Future<Result<UserModel>> registerUser({required UserModel user}) async {
+  static Future<Result<UserModel>> registerUser({
+    required UserModel user,
+  }) async {
     try {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(

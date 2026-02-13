@@ -37,7 +37,7 @@ class TaskyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, __) {
         return MaterialApp(
-          // initialRoute: LoginScreen.routeName,
+          
           initialRoute: SplashScreen.routeName,
           routes: {
             LoginScreen.routeName: (_) => LoginScreen(),
@@ -45,7 +45,7 @@ class TaskyApp extends StatelessWidget {
             HomeScreen.routeName: (_) => HomeScreen(),
             SplashScreen.routeName: (_) => SplashScreen(),
             OnboardingScreen.routeName: (_) => OnboardingScreen(),
-            // AnimatedSplashScreen.routeName: (_) => AnimatedSplashScreen(),
+            
           },
           debugShowCheckedModeBanner: false,
         );

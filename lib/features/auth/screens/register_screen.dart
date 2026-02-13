@@ -1,14 +1,13 @@
 // ignore_for_file: unused_local_variable, use_build_context_synchronously
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tasky_app/features/auth/data/model/user_model.dart';
-import 'package:tasky_app/features/auth/widgets/custom_material_button.dart';
 import '../../../core/network/result.dart';
 import '../../../core/utils/app_dialog.dart';
 import '../../../core/utils/validators.dart';
 import '../data/firebase/auth_firebase_database.dart';
+import '../data/model/user_model.dart';
+import '../widgets/custom_material_button.dart';
 import '../widgets/navigator_register_login_widget.dart';
 import '../widgets/text_form_field.dart';
 
