@@ -19,14 +19,15 @@ class TaskModel {
 
   //toJson
   Map<String, dynamic> toJson() {
-    final pureDate = DateTime(date.year, date.month, date.day);
+    // final pureDate = DateTime(date.year, date.month, date.day);
 
     return {
       'id': id,
       'title': title,
       'description': description,
       'priority': priority,
-      'date': Timestamp.fromDate(pureDate),
+      // 'date': Timestamp.fromDate(pureDate),
+      'date': Timestamp.fromDate(date),
       'is_done': isDone,
     };
   }
@@ -38,7 +39,7 @@ class TaskModel {
         title: json['title'],
         description: json['description'],
         priority: int.tryParse(json['priority'].toString()) ?? 0,
-        // priority: json['priority'],
+        
         date: (json['date'] as Timestamp).toDate(),
         isDone: json['is_done'] ?? false,
       );

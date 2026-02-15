@@ -37,7 +37,8 @@ abstract class HomeFirebase {
 
   static Future<Result<TaskModel>> addTask(TaskModel task) async {
     try {
-      // await _getCollection.add(task);
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) return ErrorState("User not logged in");
       final doc = _getCollection.doc();
       task.id = doc.id;
       await doc.set(task);
@@ -48,17 +49,18 @@ abstract class HomeFirebase {
   }
 
   static Future<Result<List<TaskModel>>> getTasks(DateTime date) async {
-    final pureDate = DateTime(date.year, date.month, date.day);
+    final start = DateTime(date.year, date.month, date.day);
+    final end = start.add(const Duration(days: 1));
+
     try {
       final querySnapshot = await _getCollection
-          .where('date', isEqualTo: Timestamp.fromDate(pureDate))
-          
-          .orderBy('priority', descending: false)
+          .where('date', isGreaterThanOrEqualTo: Timestamp.fromDate(start))
+          .where('date', isLessThan: Timestamp.fromDate(end))
+          .orderBy('date')
+          .orderBy('priority')
           .get();
 
-      final docs = querySnapshot.docs;
-
-      final listOfTasks = docs.map<TaskModel>((doc) => doc.data()).toList();
+      final listOfTasks = querySnapshot.docs.map((doc) => doc.data()).toList();
 
       return Success<List<TaskModel>>(listOfTasks);
     } catch (e) {
@@ -66,7 +68,6 @@ abstract class HomeFirebase {
     }
   }
 
-  // final tasks = querySnapshot.docs.map<TaskModel>((doc) => doc.data()).toList();
 
   static Future<void> isDoneHandle(TaskModel task) async {
     final uid = FirebaseAuth.instance.currentUser!.uid;
@@ -77,5 +78,27 @@ abstract class HomeFirebase {
         .collection(TaskModel.collectionName)
         .doc(task.id)
         .update({'is_done': !(task.isDone ?? false)});
+  }
+
+  static Future<void> updateTask(TaskModel task) async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+
+    await FirebaseFirestore.instance
+        .collection(UserModel.collectionName)
+        .doc(uid)
+        .collection(TaskModel.collectionName)
+        .doc(task.id)
+        .update(task.toJson());
+  }
+
+  static Future<void> deleteTask(String id) async {
+    final uid = FirebaseAuth.instance.currentUser!.uid;
+
+    await FirebaseFirestore.instance
+        .collection(UserModel.collectionName)
+        .doc(uid)
+        .collection(TaskModel.collectionName)
+        .doc(id)
+        .delete();
   }
 }

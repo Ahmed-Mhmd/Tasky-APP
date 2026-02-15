@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomSaveCancelWidget extends StatefulWidget {
   const CustomSaveCancelWidget({super.key, this.selectedValue});
-  final  selectedValue;
+  final selectedValue;
 
   @override
   State<CustomSaveCancelWidget> createState() => _CustomSaveCancelWidgetState();

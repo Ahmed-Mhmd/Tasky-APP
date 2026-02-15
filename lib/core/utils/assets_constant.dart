@@ -12,4 +12,7 @@ abstract class AssetsConstant {
   static const String sendIcon = 'assets/icons/send_icon.png';
   static const String notCompleteIcon = 'assets/icons/complete_icon.png';
   static const String completedIcon = 'assets/icons/completed_icon.png';
+  static const String searchIcon = 'assets/icons/search_icon.png';
+  static const String trashIcon = 'assets/icons/trash_icon.png';
+  static const String closeIcon = 'assets/icons/close_icon.png';
 }
