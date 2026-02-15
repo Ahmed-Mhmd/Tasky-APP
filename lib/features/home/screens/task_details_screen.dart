@@ -6,7 +6,7 @@ import 'package:tasky_app/core/utils/app_dialog.dart';
 import 'package:tasky_app/core/utils/assets_constant.dart';
 
 import '../../../core/utils/app_date_picker.dart';
-import '../../../core/utils/core/utils/date_formatter.dart';
+import '../../../core/utils/date_formatter.dart';
 import '../../auth/widgets/custom_material_button.dart';
 import '../data/firebase/home_firebase.dart';
 import '../data/model/task_model.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/network/result.dart';
 import '../../../core/utils/app_dialog.dart';
 import '../../../core/utils/assets_constant.dart';
-import '../../../core/utils/core/utils/date_formatter.dart';
+import '../../../core/utils/date_formatter.dart';
 import '../data/firebase/home_firebase.dart';
 import '../data/model/task_model.dart';
 import '../screens/task_details_screen.dart';
