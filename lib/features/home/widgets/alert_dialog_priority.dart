@@ -7,8 +7,7 @@ import '../../../core/utils/assets_constant.dart';
 import 'custom_save_cancel_widget.dart';
 
 class AlertDialogPriority extends StatefulWidget {
-  const AlertDialogPriority({super.key, required this.getPriority});
-  final void Function(int) getPriority;
+  const AlertDialogPriority({super.key});
 
   @override
   State<AlertDialogPriority> createState() => _AlertDialogPriorityState();
@@ -58,7 +57,9 @@ class _AlertDialogPriorityState extends State<AlertDialogPriority> {
                   onTap: () {
                     setState(() {
                       selectedPriority = index + 1;
-                      widget.getPriority(selectedPriority);
+                      setState(() {
+                        selectedPriority = value;
+                      });
                     });
                   },
                 );

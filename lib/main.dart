@@ -15,14 +15,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // String startRoute;
-  // if (FirebaseAuth.instance.currentUser != null) {
-  //   startRoute = HomeScreen.routeName;
-  // } else {
-  //   startRoute = LoginScreen.routeName;
-  // }
-  // runApp(TaskyApp(routeName: startRoute));
-
   runApp(TaskyApp());
 }
 
@@ -37,7 +29,6 @@ class TaskyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, __) {
         return MaterialApp(
-          
           initialRoute: SplashScreen.routeName,
           routes: {
             LoginScreen.routeName: (_) => LoginScreen(),
@@ -45,7 +36,6 @@ class TaskyApp extends StatelessWidget {
             HomeScreen.routeName: (_) => HomeScreen(),
             SplashScreen.routeName: (_) => SplashScreen(),
             OnboardingScreen.routeName: (_) => OnboardingScreen(),
-            
           },
           debugShowCheckedModeBanner: false,
         );
