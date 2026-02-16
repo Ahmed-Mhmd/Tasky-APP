@@ -22,7 +22,6 @@ class AppDatePicker {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    /// HEADER
                     Text(
                       _monthName(focusedDay.month).toUpperCase(),
                       style: const TextStyle(
@@ -108,7 +107,7 @@ class AppDatePicker {
 
                     const SizedBox(height: 20),
 
-                    /// BUTTONS
+                    
                     CustomSaveCancelWidget(selectedValue: selectedDay),
                   ],
                 ),
