@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../../core/network/result.dart';
 import '../model/user_model.dart';
 
@@ -95,31 +96,3 @@ abstract class AuthFunctions {
     }
   }
 }
-/*  login
-
-Future<void> _login({required String email, required String password}) async {
-    try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-    } on FirebaseAuthException catch (e) {
-      String message = "Login failed";
-
-      if (e.code == 'invalid-credential' ||
-          e.code == 'wrong-password' ||
-          e.code == 'user-not-found') {
-        message = "Incorrect email or password";
-      }
-      if (e.code == 'invalid-email') {
-        message = "Invalid email format";
-      }
-      if (e.code == 'too-many-requests') {
-        message = "Too many attempts, try again later";
-      }
-
-      throw message;
-    }
-  }
-
- */

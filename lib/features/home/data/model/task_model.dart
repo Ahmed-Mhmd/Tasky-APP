@@ -26,7 +26,6 @@ class TaskModel {
       'title': title,
       'description': description,
       'priority': priority,
-      // 'date': Timestamp.fromDate(pureDate),
       'date': Timestamp.fromDate(date),
       'is_done': isDone,
     };
@@ -39,7 +38,7 @@ class TaskModel {
         title: json['title'],
         description: json['description'],
         priority: int.tryParse(json['priority'].toString()) ?? 0,
-        
+
         date: (json['date'] as Timestamp).toDate(),
         isDone: json['is_done'] ?? false,
       );

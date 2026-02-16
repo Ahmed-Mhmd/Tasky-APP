@@ -6,22 +6,6 @@ import 'package:tasky_app/features/home/data/model/task_model.dart';
 import '../../../../core/network/result.dart';
 
 abstract class HomeFirebase {
-  // static CollectionReference<TaskModel> get _getCollection {
-  //   final uid = FirebaseAuth.instance.currentUser!.uid;
-  //   return FirebaseFirestore.instance
-  //       .collection(UserModel.collectionName)
-  //       .withConverter<UserModel>(
-  //         fromFirestore: (snapshot, _) => UserModel.fromJson(snapshot.data()!),
-  //         toFirestore: (user, _) => user.toJson(),
-  //       )
-  //       .doc(uid)
-  //       .collection(TaskModel.collectionName)
-  //       .withConverter<TaskModel>(
-  //         fromFirestore: (snapshot, _) => TaskModel.fromJson(snapshot.data()!),
-  //         toFirestore: (task, _) => task.toJson(),
-  //       );
-  // }
-
   static CollectionReference<TaskModel> get _getCollection {
     final uid = FirebaseAuth.instance.currentUser!.uid;
 
@@ -67,7 +51,6 @@ abstract class HomeFirebase {
       return ErrorState<List<TaskModel>>(e.toString());
     }
   }
-
 
   static Future<void> isDoneHandle(TaskModel task) async {
     final uid = FirebaseAuth.instance.currentUser!.uid;

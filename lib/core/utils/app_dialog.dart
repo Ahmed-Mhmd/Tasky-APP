@@ -104,38 +104,3 @@ abstract class AppDialog {
 
 
 
-
-// class AppDialog {
-
-//   /// loading
-//   static void showLoading(BuildContext context) {
-//     showDialog(
-//       context: context,
-//       barrierDismissible: false,
-//       builder: (_) => const Center(
-//         child: CircularProgressIndicator(),
-//       ),
-//     );
-//   }
-
-//   /// error
-//   static void showError(BuildContext context, {required String error}) {
-//     showDialog(
-//       context: context,
-//       builder: (_) => AlertDialog(
-//         title: const Text("Error"),
-//         content: Text(error),
-//         actions: [
-//           TextButton(
-//             onPressed: () => Navigator.pop(context),
-//             child: const Text("OK"),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-
-// }
-
-
-
